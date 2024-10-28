@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    image: mongo:5.0.15
+    environment:
+    # tạo tài khoản
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
+
+# Chạy câu lệnh để kéo về
+    # docker compose -p hoidanit-mongodb-4rn up -d
