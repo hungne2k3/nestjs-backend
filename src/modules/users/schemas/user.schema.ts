@@ -1,4 +1,3 @@
-// Model chịu trách nhiệm tạo và đọc các tài liệu từ cơ sở dữ liệu MongoDB cơ bản.
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
@@ -8,9 +7,6 @@ export type UserDocument = HydratedDocument<User>;
 export class User {
     @Prop()
     name: string;
-
-    @Prop()
-    age: number;
 
     @Prop()
     email: string;
@@ -40,7 +36,8 @@ export class User {
     codeId: string;
 
     @Prop()
-    codeExpired: string;
+    codeExpired: Date;
+
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
