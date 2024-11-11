@@ -6,6 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   const port = configService.get('PORT');
+
+  // làm api/vi version phiên bản cho backend
+  app.setGlobalPrefix('api/v1', { exclude: [''] });
+
   await app.listen(port);
 }
 bootstrap();
